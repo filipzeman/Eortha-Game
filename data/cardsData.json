@@ -1,0 +1,37 @@
+{
+   "items":[
+	  {
+		 "name":"Nature",
+		 "startPrice":0,
+		 "bgColor":"green",
+		 "icon":"grass",
+		 "cards":[
+			{
+			   "name":"Grass",
+			   "growth":0.05,
+			   "description":"The base of your world",
+			   "icon":"grass"
+			},
+			{
+			   "name":"Grass",
+			   "growth":0.05,
+			   "description":"The base of your world",
+			   "icon":"grass"
+			},
+			{
+			   "name":"Grass",
+			   "growth":0.05,
+			   "description":"The base of your world",
+			   "icon":"grass"
+			},
+			{
+			   "name":"Tree",
+			   "growth":0.01,
+			   "growthBonus":0.1,
+			   "description":"You can hear birds chirping",
+			   "icon":"grass"
+			}
+		 ]
+	  }
+   ]
+}

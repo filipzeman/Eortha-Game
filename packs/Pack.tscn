@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyjail4r4m42u"]
+
+[ext_resource type="Texture2D" uid="uid://3yla3m0sbdkp" path="res://assets/tiles/grass.png" id="1_sws3f"]
+[ext_resource type="Script" path="res://packs/pack.gd" id="1_xnq7p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avl1f"]
+size = Vector2(146, 194)
+
+[node name="Pack" type="StaticBody2D"]
+script = ExtResource("1_xnq7p")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(140, 190)
+offset_right = 146.0
+offset_bottom = 196.0
+
+[node name="ColorRect2" type="ColorRect" parent="PanelContainer"]
+custom_minimum_size = Vector2(146, 196)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.18359, 0.18359, 0.18359, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/ColorRect2"]
+custom_minimum_size = Vector2(140, 190)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -46.5
+offset_right = 31.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="PanelContainer/ColorRect2/MarginContainer"]
+custom_minimum_size = Vector2(140, 190)
+layout_mode = 2
+color = Color(0.391748, 0.529852, 0.499978, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/ColorRect2/MarginContainer/Background"]
+custom_minimum_size = Vector2(140, 190)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/ColorRect2/MarginContainer/Background/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="PanelContainer/ColorRect2/MarginContainer/Background/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "$40"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="PanelContainer/ColorRect2/MarginContainer/Background/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer/ColorRect2/MarginContainer/Background/VBoxContainer/MarginContainer3"]
+position = Vector2(22, -28)
+scale = Vector2(3, 3)
+texture = ExtResource("1_sws3f")
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/ColorRect2/MarginContainer/Background/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="Label2" type="Label" parent="PanelContainer/ColorRect2/MarginContainer/Background/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "Shadow
+"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(73, 98)
+shape = SubResource("RectangleShape2D_avl1f")
+
+[connection signal="gui_input" from="PanelContainer/ColorRect2/MarginContainer/Background" to="." method="_on_background_gui_input"]
+[connection signal="mouse_entered" from="PanelContainer/ColorRect2/MarginContainer/Background" to="." method="_on_background_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/ColorRect2/MarginContainer/Background" to="." method="_on_background_mouse_exited"]

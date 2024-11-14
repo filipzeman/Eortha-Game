@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PackResource" load_steps=2 format=3 uid="uid://dybnptlp0l70t"]
+
+[ext_resource type="Script" path="res://resources/pack.gd" id="1_8fuvv"]
+
+[resource]
+script = ExtResource("1_8fuvv")
+title = "Nature"
+purchaseCost = 0
+icon = 0
+backgroundColor = 0

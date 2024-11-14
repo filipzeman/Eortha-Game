@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=2 format=3 uid="uid://fk5bqbuwf6km"]
+
+[ext_resource type="Script" path="res://resources/card.gd" id="1_f4dv6"]
+
+[resource]
+script = ExtResource("1_f4dv6")
+title = "Tree"
+description = "You can hear birds chirping"
+income = 0.1
+icon = 1
