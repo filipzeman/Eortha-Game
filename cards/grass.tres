@@ -6,5 +6,5 @@
 script = ExtResource("1_gglhn")
 title = "Grass"
 description = "The base of your world"
-income = 0.005
+income = 0.0
 icon = 0

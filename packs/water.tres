@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_2ea4f")
-title = "Water"
-purchaseCost = 100
+name = 1
+purchaseCost = "$150"
 icon = 2
-backgroundColor = 1
+backgroundColor = "#208cb2"

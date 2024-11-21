@@ -8,3 +8,4 @@ title = "Tree"
 description = "You can hear birds chirping"
 income = 0.1
 icon = 1
+tilemap_layer = 1

@@ -1,23 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyjail4r4m42u"]
+[gd_scene load_steps=4 format=3 uid="uid://hogx16pmma1r"]
 
-[ext_resource type="Script" path="res://packs/pack.gd" id="1_nhewo"]
-[ext_resource type="Texture2D" uid="uid://3yla3m0sbdkp" path="res://assets/tiles/grass.png" id="2_3vc7s"]
+[ext_resource type="Script" path="res://packs/pack.gd" id="1_nwofj"]
+[ext_resource type="Texture2D" uid="uid://3yla3m0sbdkp" path="res://assets/tiles/grass.png" id="2_4k7q8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avl1f"]
+size = Vector2(146, 194)
 
 [node name="Pack" type="StaticBody2D"]
-scale = Vector2(1.5, 1.5)
-script = ExtResource("1_nhewo")
+script = ExtResource("1_nwofj")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(140, 190)
-offset_right = 150.0
-offset_bottom = 200.0
+offset_right = 146.0
+offset_bottom = 196.0
 
 [node name="ColorRect2" type="ColorRect" parent="PanelContainer"]
-custom_minimum_size = Vector2(140, 190)
+custom_minimum_size = Vector2(146, 196)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-color = Color(0.887871, 0.940683, 1, 1)
+color = Color(0.18359, 0.18359, 0.18359, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/ColorRect2"]
 custom_minimum_size = Vector2(140, 190)
@@ -33,15 +35,11 @@ offset_right = 31.5
 offset_bottom = 46.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
 
 [node name="Background" type="ColorRect" parent="PanelContainer/ColorRect2/MarginContainer"]
 custom_minimum_size = Vector2(140, 190)
 layout_mode = 2
-color = Color(0.25806, 0.57413, 0.333484, 1)
+color = Color(0.391748, 0.529852, 0.499978, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/ColorRect2/MarginContainer/Background"]
 custom_minimum_size = Vector2(140, 190)
@@ -79,7 +77,7 @@ size_flags_vertical = 3
 [node name="Sprite2D" type="Sprite2D" parent="PanelContainer/ColorRect2/MarginContainer/Background/VBoxContainer/MarginContainer3"]
 position = Vector2(22, -28)
 scale = Vector2(3, 3)
-texture = ExtResource("2_3vc7s")
+texture = ExtResource("2_4k7q8")
 centered = false
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/ColorRect2/MarginContainer/Background/VBoxContainer"]
@@ -98,6 +96,11 @@ text = "Shadow
 "
 horizontal_alignment = 1
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(73, 98)
+shape = SubResource("RectangleShape2D_avl1f")
+
+[connection signal="gui_input" from="PanelContainer/ColorRect2" to="." method="_on_color_rect_2_gui_input"]
 [connection signal="gui_input" from="PanelContainer/ColorRect2/MarginContainer/Background" to="." method="_on_background_gui_input"]
 [connection signal="mouse_entered" from="PanelContainer/ColorRect2/MarginContainer/Background" to="." method="_on_background_mouse_entered"]
 [connection signal="mouse_exited" from="PanelContainer/ColorRect2/MarginContainer/Background" to="." method="_on_background_mouse_exited"]

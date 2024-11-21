@@ -1,13 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://o304hsrw8as8"]
+[gd_scene load_steps=10 format=3 uid="uid://o304hsrw8as8"]
 
-[ext_resource type="Texture2D" uid="uid://3yla3m0sbdkp" path="res://assets/tiles/grass.png" id="1_nxpa5"]
-[ext_resource type="Script" path="res://scripts/game.gd" id="1_y88tu"]
-[ext_resource type="Script" path="res://scripts/deck_interaction_handler.gd" id="3_bj2sw"]
-[ext_resource type="Script" path="res://packs/packs.gd" id="4_t336v"]
-[ext_resource type="AudioStream" uid="uid://dt6a41i14fyks" path="res://audio/birds.wav" id="5_djdl1"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_p57ef"]
+[ext_resource type="Texture2D" uid="uid://3yla3m0sbdkp" path="res://assets/tiles/grass.png" id="2_u5sy4"]
+[ext_resource type="Script" path="res://scripts/deck_interaction_handler.gd" id="3_gee14"]
+[ext_resource type="Script" path="res://packs/packs.gd" id="4_0tnpc"]
+[ext_resource type="Script" path="res://cards/cards.gd" id="5_vtaks"]
+[ext_resource type="AudioStream" uid="uid://dt6a41i14fyks" path="res://audio/birds.wav" id="6_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://bt7gwqae18b5i" path="res://ui/Money.tscn" id="7_u5sy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4fnja"]
-texture = ExtResource("1_nxpa5")
+texture = ExtResource("2_u5sy4")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -8)
@@ -20,7 +22,8 @@ tile_size = Vector2i(32, 16)
 sources/2 = SubResource("TileSetAtlasSource_4fnja")
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_y88tu")
+position = Vector2(-1, 0)
+script = ExtResource("1_p57ef")
 
 [node name="Terrain" type="TileMapLayer" parent="."]
 scale = Vector2(4, 4)
@@ -35,16 +38,24 @@ scale = Vector2(4, 4)
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Deck Interaction Handler" type="Node2D" parent="."]
-script = ExtResource("3_bj2sw")
+script = ExtResource("3_gee14")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 
+[node name="Money" parent="Control" instance=ExtResource("7_u5sy4")]
+self_modulate = Color(6.257e-06, 0.788928, 0.572102, 1)
+position = Vector2(241, -182)
+
 [node name="Packs" type="Node2D" parent="Control"]
-script = ExtResource("4_t336v")
+script = ExtResource("4_0tnpc")
+
+[node name="Cards" type="Node2D" parent="Control"]
+script = ExtResource("5_vtaks")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_djdl1")
-volume_db = 5.0
+stream = ExtResource("6_kvpfn")
+volume_db = 8.578
 autoplay = true
+playback_type = 1
